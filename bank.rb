@@ -1,4 +1,7 @@
 class BankAccount
+  def initialize
+    @balance = 0
+  end
   # READERS
   def balance
     @balance
@@ -9,7 +12,7 @@ class BankAccount
 
   # WRITERS
   def deposit=(amount)
-    @balance = amount
+    @balance += amount
   end
   def withdraw=(amount)
     @balance -= amount
