@@ -14,5 +14,20 @@ class Cat
   def meal_time
     @meal_time
   end
-
+  def eats_at
+    if @meal_time < 12
+      @eats_at = "#{@meal_time} AM"
+    else
+      @eats_at = "#{@meal_time} PM"
+    end
+  end
+  def meow
+    "My name is #{@name} and I eat #{@food} at #{eats_at}"
+  end
 end
+
+misha = Cat.new("misha", "toast", 15 )
+tony = Cat.new("tony", "fish", 11 )
+
+puts misha.meow
+puts tony.meow
