@@ -10,7 +10,9 @@ class Product
     @base_price
   end
 
-
+  def remove
+    @@cart.delete(self)
+  end
              # WRITERS
   def total_price
     @total_price = @base_price * @tax_rate
