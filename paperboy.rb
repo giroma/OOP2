@@ -16,7 +16,7 @@ class Paperboy
   end
 
   def quota
-    @quota += @experience/2
+    @quota = 50 + @experience/2
   end
   def deliver(start_address, end_address)
 
@@ -25,7 +25,7 @@ class Paperboy
     @earnings += @papers_delivered*0.25
     if @papers_delivered > @quota
       @earnings += (@papers_delivered - @quota)*0.25
-    elsif @papers_delivered < @quota
+    elsif @papers_delivered < @qusota
       @earnings -= 2.0
     end
     quota
@@ -38,7 +38,8 @@ class Paperboy
 end
 
 ari = Paperboy.new("ari")
-
+5.times do
 papers = gets.chomp.to_i
 ari.deliver(0, papers)
 puts ari.report
+end
