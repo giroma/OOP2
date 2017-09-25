@@ -1,6 +1,10 @@
 class BankAccount
   @@interest_rate = 1.01
   @@accounts = []
+  
+  def initialize
+    @balance = 0
+  end
   #  CLASS METHODS
   def self.create
   new_account = BankAccount.new
@@ -20,10 +24,6 @@ class BankAccount
       item.reasign_balance(item.balance * @@interest_rate)
       index += 1
     end
-  end
-
-  def initialize
-    @balance = 0
   end
 
   def balance
