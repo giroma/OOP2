@@ -61,4 +61,3 @@ puts BankAccount.total_funds # 1212.0
 my_account.withdraw(50)
 puts my_account.balance # 152.0
 puts BankAccount.total_funds # 1162.0
-sdfsdf
