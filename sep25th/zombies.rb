@@ -17,7 +17,7 @@ class Zombie
     else
       @strength = strength
     end
-
+    @total = @strength + @speed
   end
 
   def self.all
@@ -32,7 +32,7 @@ class Zombie
     @@horde.shift(rand(1..10))
   end
   def self.spawn
-    number_of_zombies = rand(1..10)
+    number_of_zombies = rand(4..10)
     number_of_zombies.times do
       zombie = Zombie.new(rand(1..5), rand(1..8))
       @@horde << zombie
@@ -40,7 +40,20 @@ class Zombie
     # return zombie
   end
   def self.increase_plague_level
+
     @@plague_level += rand(3)
+  end
+  def self.deadliest
+
+    total = 1000
+    @@horde.each do |obj|
+      if obj.total_return >= total
+        return "#{obj} with #{total}"
+      end
+      total = obj.total_return
+
+    end
+
   end
 
             #INSTANCE METHODS
@@ -71,7 +84,9 @@ class Zombie
       return false
     end
   end
-
+  def total_return
+    @total
+  end
 end
 
 
@@ -92,3 +107,5 @@ zombie3 = Zombie.all[2]
 puts zombie1.encounter # You got away
 puts zombie2.encounter # You are now a zombie
 puts zombie3.encounter # You died
+
+puts Zombie.deadliest
