@@ -1,5 +1,5 @@
 require_relative("product")
-
+require 'pry'
 class Cart
   @@cart = []
 
@@ -12,9 +12,11 @@ class Cart
   def self.show
     @@cart
   end
-  # def self.remove
-  #   @@cart.delete(self)
-  # end
+  # binding.pry
+  def self.remove(product)
+    # binding.pry
+    @@cart.delete(product)
+  end
   def self.total_cost
     sum = 0
     @@cart.each do |product|
@@ -37,7 +39,9 @@ item3 = Cart.add("bread", 3.2, 1.0)
 
 puts Cart.show.inspect
 
-item2.remove
+Cart.remove(item1)
+
+puts Cart.show.inspect
 
 puts Cart.total_cost
 puts Cart.total_cost_plus_tax
